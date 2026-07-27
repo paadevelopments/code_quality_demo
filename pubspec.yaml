@@ -1,0 +1,43 @@
+name: code_quality_demo
+description: "A new Flutter project."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.11.3
+
+dependencies:
+  cupertino_icons: ^1.0.8
+  flutter:
+    sdk: flutter
+  flutter_secure_storage: ^9.0.0
+  http: ^0.13.6
+  provider: ^6.1.1
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter
+  sovereign_pay_card:
+    git:
+      url: https://github.com/Sovereign-Pay-LTD/Plugins_SDK_Card.git
+      ref: main
+  sovereign_pay_utility:
+    git:
+      url: https://github.com/Sovereign-Pay-LTD/Plugins_SDK_Utility.git
+      ref: main
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/logo.png
+    - assets/images/placeholder.png
+
+  fonts:
+    - family: AppFont
+      fonts:
+        - asset: assets/fonts/AppFont-Regular.ttf
+        - asset: assets/fonts/AppFont-Bold.ttf
+          weight: 700
