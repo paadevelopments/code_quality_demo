@@ -1,7 +1,9 @@
 import 'package:code_quality_demo/core/domain/models/ui_state.dart';
 import 'package:code_quality_demo/core/resources/strings/app_strings.dart';
 import 'package:code_quality_demo/core/ui/navigation/app_navigator.dart';
+import 'package:code_quality_demo/core/ui/navigation/navigator_request.dart';
 import 'package:code_quality_demo/core/ui/widgets/app_text/app_text.dart';
+import 'package:code_quality_demo/features/auth/ui/auth_viewmodel.dart';
 import 'package:code_quality_demo/features/posts/ui/list/viewmodel.dart';
 import 'package:code_quality_demo/features/posts/ui/list/widgets/posts_app_bar.dart';
 import 'package:code_quality_demo/features/posts/ui/list/widgets/posts_list.dart';
@@ -25,19 +27,30 @@ class _PostsScreenState extends State<PostsScreen> {
     _viewModel.loadPosts();
     _viewModel.uiState.addListener(_onUiStateChange);
     _viewModel.navigationRequest.addListener(_onNavigationRequest);
+    AuthViewModel.instance.navigationRequest.addListener(_onAuthNavigationRequest);
   }
 
   void _onNavigationRequest() {
-    final request = _viewModel.navigationRequest.value;
+    _handleNavigationRequest(_viewModel.navigationRequest.value);
+  }
+
+  void _onAuthNavigationRequest() {
+    _handleNavigationRequest(AuthViewModel.instance.navigationRequest.value);
+  }
+
+  void _handleNavigationRequest(NavigatorRequest? request) {
     if (request == null) {
       return;
     }
 
     if (request.isPop) {
       AppNavigator.pop(request.arguments);
-    } else if (request.isAndRemoveUntil) {
-      AppNavigator.goHome();
-    } else {
+    } else if (request.isAndRemoveUntil && request.routeName != null) {
+      AppNavigator.pushAndRemoveUntil(
+        request.routeName!,
+        arguments: request.arguments,
+      );
+    } else if (request.routeName != null) {
       AppNavigator.push(request.routeName!, arguments: request.arguments);
     }
   }
@@ -74,6 +87,8 @@ class _PostsScreenState extends State<PostsScreen> {
   void dispose() {
     _viewModel.uiState.removeListener(_onUiStateChange);
     _viewModel.navigationRequest.removeListener(_onNavigationRequest);
+    AuthViewModel.instance.navigationRequest
+        .removeListener(_onAuthNavigationRequest);
     _viewModel.dispose();
     super.dispose();
   }

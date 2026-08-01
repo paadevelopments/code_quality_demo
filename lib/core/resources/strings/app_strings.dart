@@ -20,6 +20,12 @@ class AppStrings {
   /// The login string.
   static const String login = 'Login';
 
+  /// The logout string.
+  static const String logout = 'Logout';
+
+  /// The posts string.
+  static const String posts = 'Posts';
+
   /// The email string.
   static const String email = 'Email';
 

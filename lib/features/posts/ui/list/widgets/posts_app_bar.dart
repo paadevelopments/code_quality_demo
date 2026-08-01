@@ -23,6 +23,7 @@ class PostsAppBar extends StatelessWidget implements PreferredSizeWidget {
           onPressed: () => ThemeViewModel.instance.toggleTheme(),
         ),
         IconButton(
+          tooltip: AppStrings.logout,
           icon: const Icon(Icons.logout),
           onPressed: () => AuthViewModel.instance.logout(),
         ),

@@ -26,19 +26,22 @@ class AppNavigator {
         .pushReplacementNamed<T, TO>(routeName, arguments: arguments);
   }
 
-  /// Navigates to the home (posts) screen and clears stack.
-  static Future<void> goHome() {
-    return navigatorKey.currentState!.pushNamedAndRemoveUntil(
-      AppRoutes.posts,
+  /// Navigates to a specific route and clears stack.
+  static Future<T?> pushAndRemoveUntil<T>(String routeName, {Object? arguments}) {
+    return navigatorKey.currentState!.pushNamedAndRemoveUntil<T>(
+      routeName,
       (route) => false,
+      arguments: arguments,
     );
   }
 
+  /// Navigates to the home (posts) screen and clears stack.
+  static Future<T?> goHome<T>() {
+    return pushAndRemoveUntil<T>(AppRoutes.posts);
+  }
+
   /// Navigates to the login screen and clears stack.
-  static Future<void> toLogin() {
-    return navigatorKey.currentState!.pushNamedAndRemoveUntil(
-      AppRoutes.login,
-      (route) => false,
-    );
+  static Future<T?> toLogin<T>() {
+    return pushAndRemoveUntil<T>(AppRoutes.login);
   }
 }

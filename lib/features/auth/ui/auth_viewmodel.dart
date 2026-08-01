@@ -60,7 +60,7 @@ class AuthViewModel extends BaseViewModel {
     _currentUser = null;
     await _repository.clearToken();
     setIdle();
-    navigateTo(AppRoutes.login);
+    goHome(AppRoutes.login);
     refresh();
   }
 }

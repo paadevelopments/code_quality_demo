@@ -26,8 +26,11 @@ class _LoginScreenState extends State<LoginScreen> {
       return;
     }
 
-    if (request.isAndRemoveUntil) {
-      AppNavigator.goHome();
+    if (request.isAndRemoveUntil && request.routeName != null) {
+      AppNavigator.pushAndRemoveUntil(
+        request.routeName!,
+        arguments: request.arguments,
+      );
     } else if (!request.isPop && request.routeName != null) {
       AppNavigator.push(request.routeName!, arguments: request.arguments);
     }

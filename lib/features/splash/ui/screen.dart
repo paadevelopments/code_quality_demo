@@ -28,7 +28,10 @@ class _SplashScreenState extends State<SplashScreen> {
     }
 
     if (request.isAndRemoveUntil && request.routeName != null) {
-      AppNavigator.goHome();
+      AppNavigator.pushAndRemoveUntil(
+        request.routeName!,
+        arguments: request.arguments,
+      );
     }
   }
 
