@@ -15,6 +15,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// DO NOT DO ANY MULI-PROVIDER WRAPPING HERE.
+    /// All view models should be declared as `Global singleton instance`.
+
+    /// This is just for view models that are needed for the
+    /// `MaterialApp` initialization.
     return ListenableBuilder(
       listenable: Listenable.merge([
         AuthViewModel.instance,
