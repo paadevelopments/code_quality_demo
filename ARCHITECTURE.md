@@ -98,6 +98,7 @@ The architecture encourages reusability through inheritance and composition:
 ## Development Standards
 - **Architectural Alignment**: All new logic, features, and components must strictly align with the established layered architecture and logic flow. Deviations are not permitted without architectural review.
 - **Code Formatting**: All code must be formatted using `dart format .` before pushing changes to ensure a consistent coding style.
+- **Import Style**: All imports must use the full package path (e.g., `import 'package:code_quality_demo/...'`). Relative paths are strictly prohibited to ensure clarity and avoid resolution issues.
 - **Single Class per File**: Enforced for all files except `StatefulWidget` + `State` pairs.
 - **ViewModel Requirement**: Mandatory for all screens and complex widgets to ensure testability and separation of logic.
 - **ViewModel State Models**: Each ViewModel should have its own dedicated UI model class to hold its state data. This prevents the clustering of multiple local variables within the ViewModel.
@@ -106,6 +107,7 @@ The architecture encourages reusability through inheritance and composition:
 - **Simplification**: Always strive for simplicity. Avoid overcomplicating logic and keep implementations straightforward and readable.
 - **Resource Discipline**: No hardcoded strings or dimensions; use `AppStrings` and `AppSpacing`.
 - **Logging**: Always use `AppLogger` for consistency across environments.
+- **Documentation & TODOs**: All complex logic must be accompanied by doc-style comments (`///`) to ensure clarity for cross-team development. Use `TODO` comments to flag incomplete logic or areas requiring future attention.
 
 ## Testing
 Tests are considered important for maintaining the stability and reliability of the application, although not strictly mandatory for every single minor change. ViewModels and Repositories should be designed with testability in mind (e.g., via dependency injection).

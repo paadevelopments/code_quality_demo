@@ -14,10 +14,11 @@ This document provides instructions for AI agents working on the `code_quality_d
 ## 2. Code Quality & Style
 - **Lints**: Pay close attention to lints defined in `analysis_options.yaml`.
   - Prefer `const` constructors where possible.
+  - **Full-Path Imports**: Use full package paths for all imports. Relative paths are strictly prohibited.
   - Avoid hardcoded strings in UI (use `AppStrings` or localization).
   - Use `AppText` instead of `Text` for consistent styling.
   - Follow naming conventions (camelCase for variables/functions, PascalCase for classes).
-- **Documentation**: All public APIs (classes, methods, fields) must have doc comments (`///`).
+- **Documentation**: All public APIs (classes, methods, fields) must have doc comments (`///`). Use these and `TODO` comments where necessary to ensure clarity for cross-team development.
 
 ## 3. Architecture & Patterns
 - **Feature-Based Structure**: Organize code by features (e.g., `lib/features/posts`).
