@@ -2,6 +2,8 @@
 
 This document provides instructions for AI agents working on the `code_quality_demo` project. Adhering to these guidelines ensures consistency, code quality, and maintainability.
 
+> **Portable agent rules:** For host apps being refactored to the organizational architecture, use [`docs/AGENTS.md`](docs/AGENTS.md) with [`docs/ARCHITECTURE_BLUEPRINT.md`](docs/ARCHITECTURE_BLUEPRINT.md).
+
 ## 1. General Principles
 - **Project Familiarization**: Before performing any task, familiarize yourself with the project's specifications, including file/folder structure, lint rules, architecture, code quality standards, and logic organization.
 - **Maintain Consistency**: Follow existing patterns for file structure, naming, and logic organization.

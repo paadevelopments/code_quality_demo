@@ -2,6 +2,8 @@
 
 This document outlines the architectural design and structural organization of the `code_quality_demo` project.
 
+> **Portable blueprint:** For refactoring other apps (including Sovereign Pay Card/Utility integration), use [`docs/ARCHITECTURE_BLUEPRINT.md`](docs/ARCHITECTURE_BLUEPRINT.md) and [`docs/AGENTS.md`](docs/AGENTS.md).
+
 ## Overview
 The project follows a **Feature-Driven Layered Architecture**, adhering to the principles outlined in the [Flutter App Architecture Guide](https://docs.flutter.dev/app-architecture/concepts#layered-architecture). It emphasizes strict separation of concerns, modularity, and high code quality.
 
