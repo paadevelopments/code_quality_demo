@@ -2,7 +2,9 @@
 
 This document is a **portable architectural blueprint** for refactoring any Flutter application to match the organization’s Feature-Driven Layered Architecture. AI agents and engineers should treat this file as the source of truth for structure, code quality, logic organization, and Sovereign Pay SDK integration.
 
-**Companion document:** [`docs/AGENTS.md`](AGENTS.md) (operational rules for AI agents).
+**Placement:** This file is intended to live at the **host project root** as `ARCHITECTURE_BLUEPRINT.md` (alongside `AGENTS.md`, `pubspec.yaml`, and `lib/`).
+
+**Companion document:** [`AGENTS.md`](AGENTS.md) (operational rules for AI agents; same project root).
 
 **Reference implementation:** The `code_quality_demo` repository demonstrates many of these patterns. Prefer this blueprint over demo shortcuts when they conflict (for example: missing ViewModels, DTOs living in the wrong layer, or Sovereign Pay SDKs declared only as `dev_dependencies`).
 
@@ -22,7 +24,7 @@ This document is a **portable architectural blueprint** for refactoring any Flut
 
 ### How agents should use this document
 1. Read this blueprint fully before restructuring code.
-2. Follow [`docs/AGENTS.md`](AGENTS.md) for behavioral / workflow rules.
+2. Follow [`AGENTS.md`](AGENTS.md) for behavioral / workflow rules.
 3. Execute the [Refactoring Playbook](#12-agent-refactoring-playbook) in order.
 4. Verify with `dart format .` and `dart analyze` (or `flutter analyze`) until clean.
 
@@ -558,10 +560,12 @@ Execute in order when bringing a host app in line with this blueprint:
 
 ## 14. Document Map
 
+These files sit at the **host project root**:
+
 | Document | Role |
 |----------|------|
-| `docs/ARCHITECTURE_BLUEPRINT.md` | This file — portable architecture & refactoring blueprint |
-| `docs/AGENTS.md` | Generic AI agent behavioral & workflow rules |
-| Host `ARCHITECTURE.md` / `AGENTS.md` | Project-specific notes (if present); must not contradict this blueprint for payment apps |
+| `ARCHITECTURE_BLUEPRINT.md` | This file — portable architecture & refactoring blueprint |
+| `AGENTS.md` | AI agent behavioral & workflow rules (companion to this blueprint) |
+| Optional project-specific notes | Must not contradict this blueprint for payment apps |
 
 When in conflict between a demo app’s shortcuts and this blueprint, **follow this blueprint**.

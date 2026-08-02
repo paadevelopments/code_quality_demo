@@ -2,7 +2,9 @@
 
 Operational rules for AI agents working on Flutter apps that follow the organization’s Feature-Driven Layered Architecture.
 
-**Architecture source of truth:** [`docs/ARCHITECTURE_BLUEPRINT.md`](ARCHITECTURE_BLUEPRINT.md)
+**Placement:** This file is intended to live at the **host project root** as `AGENTS.md` (alongside `ARCHITECTURE_BLUEPRINT.md`, `pubspec.yaml`, and `lib/`).
+
+**Architecture source of truth:** [`ARCHITECTURE_BLUEPRINT.md`](ARCHITECTURE_BLUEPRINT.md)
 
 Before changing structure, layers, state management, navigation, or Sovereign Pay integration, read the blueprint. Prefer the blueprint over demo-project shortcuts when they conflict.
 
